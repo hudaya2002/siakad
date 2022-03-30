@@ -6,8 +6,14 @@
             <div class="pull-left mt-2">
                 <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
             </div>
-            <div class="float-right my-2">
-                <a class="btn btn-success" href="{{ route('mahasiswa.create') }}"> Input Mahasiswa</a>
+            <div class="float-left my-3">
+                <form action="{{ route('mahasiswa.index') }}">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="" name="search" value="{{ request('search')}}" style="width: 1000px">
+                        <button class="btn btn-primary" type="submit">Search</button>&emsp;
+                        <a class="btn btn-success" href="{{ route('mahasiswa.create') }}"> Input Mahasiswa</a>
+                    </div>
+                </form>   
             </div>
         </div>
     </div>
@@ -27,15 +33,23 @@
         <tr>
             <th>Nim</th>
             <th>Nama</th>
+            <th>Email</th>
+            <th>Alamat</th>
+            <th>Tanggal Lahir</th>
+            <th>Jenis Kelamin</th>
             <th>Kelas</th>
             <th>Jurusan</th>
             <th width="280px">Action</th>
         </tr>
-    @foreach ($mahasiswa as $mhs)
+    @foreach ($paginate as $mhs)
         <tr>
 
             <td>{{ $mhs ->nim }}</td>
             <td>{{ $mhs ->nama }}</td>
+            <td>{{ $mhs ->email }}</td>
+            <td>{{ $mhs ->alamat }}</td>
+            <td>{{ $mhs ->tanggal_lahir }}</td>
+            <td>{{ $mhs ->jenis_kelamin }}</td>
             <td>{{ $mhs ->kelas }}</td>
             <td>{{ $mhs ->jurusan }}</td>
             <td>
@@ -51,4 +65,5 @@
         </tr>
     @endforeach
     </table>
+    {{ $paginate->links()}}
 @endsection
