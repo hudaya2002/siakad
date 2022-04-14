@@ -15,7 +15,7 @@
                     <li class="list-group-item"><b>Alamat: </b>{{$Mahasiswa->alamat}}</li>
                     <li class="list-group-item"><b>Tanggal Lahir: </b>{{$Mahasiswa->tanggal_lahir}}</li>
                     <li class="list-group-item"><b>Jenis Kelamin: </b>{{$Mahasiswa->jenis_kelamin}}</li>
-                    <li class="list-group-item"><b>Kelas: </b>{{$Mahasiswa->kelas}}</li>
+                    <li class="list-group-item"><b>Kelas: </b>{{$Mahasiswa->kelas->nama_kelas}}</li>
                     <li class="list-group-item"><b>Jurusan: </b>{{$Mahasiswa->jurusan}}</li>
                 </ul>
             </div>
