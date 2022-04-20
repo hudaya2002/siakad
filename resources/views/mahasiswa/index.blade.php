@@ -39,6 +39,7 @@
             <th>Jenis Kelamin</th>
             <th>Kelas</th>
             <th>Jurusan</th>
+            <th>Foto</th>
             <th width="300px">Action</th>
         </tr>
     @foreach ($paginate as $mhs)
@@ -52,6 +53,7 @@
             <td>{{ $mhs ->jenis_kelamin }}</td>
             <td>{{ $mhs ->kelas->nama_kelas }}</td>
             <td>{{ $mhs ->jurusan }}</td>
+            <td><img width="50px" src="{{ asset('storage/' . $mhs->image)}}" alt="" srcset=""></td>
             <td>
             <form action="{{ route('mahasiswa.destroy',['mahasiswa'=>$mhs->nim]) }}" method="POST">
 
